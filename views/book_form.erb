@@ -1,0 +1,24 @@
+<h1>Add a Book</h1>
+
+<div class= "container">
+<form action="/librarian/add_book/new" method="post">
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="Book Title">
+  </div>
+  <div class="form-group">
+    <label>Author</label>
+    <input type="text" class="form-control" id="author" name="author" placeholder="Author">
+  </div>
+  <div class="form-group">
+    <label>Genres</label>
+      <select class="form-control" id="genre" name="genre">
+        <% @genres.each() do |genre| %>
+        <option> <%= genre %> </option>
+        <% end %>
+      </select>
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>

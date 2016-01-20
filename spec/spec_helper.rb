@@ -11,3 +11,21 @@ RSpec.configure do |config|
     DB.exec("DELETE FROM books *;")
   end
 end
+
+def create_test_book
+  Book.new({
+    :id => nil,
+    :genre => "Historical",
+    :author => "Joe Blow",
+    :title => "Joes history of Portland",
+    })
+end
+
+def create_test_book_2
+  Book.new({
+    :id => nil,
+    :genre => "Fiction",
+    :author => "Sheldon Cooper",
+    :title => "Why Im so smart",
+    })
+end
