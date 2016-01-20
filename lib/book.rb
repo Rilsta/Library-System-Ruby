@@ -20,8 +20,22 @@ class Book
       @id = saved_book.first.fetch("id").to_i()
   end
 
-  def self.filter(column, filter)
-    returned_books = DB.exec("SELECT * FROM books WHERE #{column} LIKE '#{filter}';")
+  def update(attribute)
+    @genre = attribute.fetch("genre")
+    @author = attribute.fetch("author")
+    @title = attribute.fetch("title")
+    @id = self.id
+    DB.exec("UPDATE books SET (genre, author, title) \
+      = ('#{@genre}', '#{@author}', '#{@title}') WHERE id = #{@id};")
+  end
+
+  def delete
+    DB.exec("DELETE FROM books WHERE id = #{self.id};")
+  end
+
+  def self.filter(filter)
+    returned_books = DB.exec("SELECT * FROM books WHERE author LIKE '%#{filter}%' OR
+     title LIKE '%#{filter}%' OR genre LIKE '%#{filter}%';")
     Book.map_results_to_objects(returned_books)
   end
 

@@ -2,6 +2,20 @@
 
 <ul>
   <% @books.each do |book| %>
-    <li> <a href="/librarian/book/<%= book.id %>"><%= book.title() %></a> </li>
+    <li>
+      <a href="/librarian/book/<%= book.id %>"><%= book.title() %></a>
+      <a href="/librarian/book/edit/<%= book.id %>"> <i>(edit)</i> </a>
+      <a href="/librarian/book/delete/<%= book.id %>"> <i>(delete)</i> </a>
+    </li>
   <% end %>
 </ul>
+
+<div class= "container">
+<form action="/librarian/books/filter">
+  <div class="form-group">
+    <label>Filter by:</label>
+    <input type="text" class="form-control" id="filter" name="filter" placeholder="Title, Author, Genre">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
