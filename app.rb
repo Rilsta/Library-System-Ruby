@@ -59,7 +59,6 @@ get('/librarian/book/delete/:id') do
 end
 
 get('/librarian/books/filter') do
-  binding.pry
-  @filter = Book.filter(params.fetch('filter'))
-  binding.pry
+  @books = Book.filter(params.fetch('filter'))
+  erb(:book_list)
 end
