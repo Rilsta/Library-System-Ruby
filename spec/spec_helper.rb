@@ -7,7 +7,7 @@ DB = PG.connect({:dbname => 'library_system_test'})
 
 RSpec.configure do |config|
   config.after(:each) do
-    # DB.exec("DELETE FROM patrons *;")
+    DB.exec("DELETE FROM patrons *;")
     DB.exec("DELETE FROM books *;")
   end
 end
@@ -27,5 +27,19 @@ def create_test_book_2
     :genre => "Fiction",
     :author => "Sheldon Cooper",
     :title => "Why Im so smart",
+    })
+end
+
+def create_test_patron
+  Patron.new({
+    :id => nil,
+    :name => "Mark"
+    })
+end
+
+def create_test_patron_2
+  Patron.new({
+    :id => nil,
+    :name => "Jeff"
     })
 end

@@ -64,7 +64,7 @@ describe(Book) do
       book1.save
       book2 = create_test_book_2
       book2.save
-      expect(Book.filter('genre', 'Fiction')).to(eq([book2]))
+      expect(Book.filter('Fiction')).to(eq([book2]))
     end
   end
 end
