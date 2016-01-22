@@ -1,0 +1,6 @@
+<h1>List of Checked Out Books</h1>
+  <ul>
+    <% @checkout_list.each do |book| %>
+    <li><%= "Book \"#{book.fetch('author')}\" checked out by #{book.fetch('name')}" %></li>
+    <% end %>
+  </ul>

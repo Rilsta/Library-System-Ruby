@@ -1,0 +1,19 @@
+<h1>Welcome, <%= @patron.name %> </h1>
+
+<h4>Books Available:</h4>
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <a href="/librarian/book/<%= book.id %>"><%= book.title() %></a>
+      <% if Checkout.retrieve_by_book(book.id) %>
+        <% if Checkout.checkedout(@patron.id, book.id) %>
+          <a href="/patron/<%= @patron.id %>/book/checkin/<%= book.id %>"> <i>Checkin</i> </a>
+        <% else %>
+          <i>This book is checked out</i>
+          <% end %>
+      <% else %>
+        <a href="/patron/<%= @patron.id %>/book/checkout/<%= book.id %>"> <i>Checkout</i> </a>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,23 @@
+<h1>List of Patrons</h1>
+
+<div class= "container">
+<ul>
+  <% @patrons.each do |patron| %>
+    <li>
+      <a href="/librarian/patron/<%= patron.id %>"><%= patron.name() %></a>
+      <a href="/librarian/patron/edit/<%= patron.id %>"> <i>(edit)</i> </a>
+      <a href="/librarian/patron/delete/<%= patron.id %>"> <i>(delete)</i> </a>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/librarian/patrons/filter">
+  <div class="form-group">
+    <label>Filter by:</label>
+    <input type="text" class="form-control" id="filter" name="filter" placeholder="Name">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<a href="/librarian">Back</a>
+</div>

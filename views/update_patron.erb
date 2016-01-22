@@ -1,0 +1,12 @@
+<h1>Edit Patron</h1>
+
+<div class= "container">
+<form action="/librarian/patron_list/patron_update/<%= @patron.id %>" method="post">
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" id="name" name="name" value="<%= @patron.name() %>">
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
