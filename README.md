@@ -2,7 +2,7 @@
 **by Riley Starnes and Mike Mahone**
 
 ## Project
-Build a library catalog website where users can view animals for adoption. Practice CRUD functionality 
+Build a library catalog website where users can view books and patrons. Practice CRUD functionality 
 with Ruby, Sinatra, and psql to manipulate data in a Postgres database. Practice RESTful routing and
 Behavior Driven Development.
 
