@@ -2,7 +2,7 @@
 **by Riley Starnes and Mike Mahone**
 
 ## Project
-Build a library catalog website where users can view books and patrons. Practice CRUD functionality 
+Build a library catalog website where users can view books and patrons. Practice CRUD functionality
 with Ruby, Sinatra, and psql to manipulate data in a Postgres database. Practice RESTful routing and
 Behavior Driven Development.
 
@@ -20,6 +20,7 @@ Set up the database by running the following:
 * `\c library_system`
 * `CREATE TABLE patrons (id serial PRIMARY KEY, name varchar)`
 * `CREATE TABLE books (id serial PRIMARY KEY, author varchar, genre varchar, title varchar)`
+* `CREATE TABLE checkouts (id serial PRIMARY KEY, patron_id integer, book_id integer)`
 
 For testing, stay in psql and run the following
 * `CREATE DATABASE library_system_test WITH TEMPLATE library_system`
